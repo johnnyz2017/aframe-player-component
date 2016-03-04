@@ -4,6 +4,8 @@ if (typeof AFRAME === 'undefined') {
   throw new Error('Component attempted to register before AFRAME was available.');
 }
 
+var ASSET_ROOT = 'https://assets-scenevr-com.s3-us-west-1.amazonaws.com/prerelease/';
+
 /**
  * Player component for A-Frame.
  */
@@ -25,7 +27,7 @@ AFRAME.registerComponent('player', {
 
     this.clock = new THREE.Clock();
 
-    loader.load('/models/maria.json', function (geometry, materials) {
+    loader.load(ASSET_ROOT + 'models/maria.json', function (geometry, materials) {
       materials.forEach(function (material) {
         material.skinning = true;
       });
